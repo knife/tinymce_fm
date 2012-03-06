@@ -12,3 +12,7 @@ pl:
     filter_links: "Filtruj"
     select_link: "Wybierz link"
     by_name: "Nazwa"
+    file_upload_successful: "Wysyłanie zakończone sukcesem"
+    invalid_mime_type: 'Nieprawidłowy typ pliku!'
+    field_is_not_a_file: "Field is not a file!"
+    file_too_large: "Zbyt duży plik" 

@@ -50,7 +50,7 @@ module TinymceFm
       end
 
       def image_save_into_public_subdir(*params)
-        write_inheritable_array(:image_save_into_public_subdir, params)
+        write_inheritable_array(:image_save_into_public_subdir, params )
       end
 
       def image_file_size_limit(*params)
@@ -130,7 +130,7 @@ module TinymceFm
     private
 
     def images_folder
-      self.class.read_inheritable_attribute(:image_save_into_public_subdir) || 'images'
+      self.class.img_folder || 'images'
     end
 
     def media_folder
@@ -314,15 +314,15 @@ module TinymceFm
               else
                 make_image_thumb(base_folder, file, navi_list)
               end
-              flash[:notice] = "File upload sucessful"
+              flash[:notice] = t("tinymce_filemanager.file_upload_successful") 
             else
-              flash[:error] = "Invalid mime type! (#{file.content_type()})"
+              flash[:error] = t("tinymce_filemanager.invalid_mime_type") + " (#{file.content_type()})"
             end
           else
-            flash[:error] = "File to large! (Limit: #{size_max} file: #{File.size(file)})"
+            flash[:error] = t("tinymce_filemanager.file_too_large") + " (Limit: #{size_max} file: #{File.size(file)})"
           end
         else
-          flash[:error] = "Field is not a file!"
+          flash[:error] = t("tinymce_filemanager.field_is_not_a_file")
         end
       end
       if !@navi.blank?
