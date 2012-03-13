@@ -15,4 +15,4 @@ pl:
     file_upload_successful: "Wysyłanie zakończone sukcesem"
     invalid_mime_type: 'Nieprawidłowy typ pliku!'
     field_is_not_a_file: "Field is not a file!"
-    file_too_large: "Zbyt duży plik" 
+    file_too_large: "Zbyt duży plik. Plik nie może mieć więcej niż 2MB." 

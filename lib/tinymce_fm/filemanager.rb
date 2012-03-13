@@ -320,7 +320,7 @@ module TinymceFm
               flash[:error] = t("tinymce_filemanager.invalid_mime_type") + " (#{file.content_type()})"
             end
           else
-            flash[:error] = t("tinymce_filemanager.file_too_large") + " (Limit: #{size_max} file: #{File.size(file)})"
+            flash[:error] = t("tinymce_filemanager.file_too_large") 
           end
         else
           flash[:error] = t("tinymce_filemanager.field_is_not_a_file")
