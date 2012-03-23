@@ -427,18 +427,19 @@ module TinymceFm
     def make_image_thumb(base_folder, file, navi_list)
       image = ::MiniMagick::Image.open(save_directory(base_folder, validate_name(file.original_filename), navi_list))
       image.resize "#{@@thumbs_width}x#{@@thumbs_height}"
-      image.write(thumb_save_directory(base_folder, "medium_#{validate_name(file.original_filename)}", navi_list))
-      #image.strip!
+      image.strip
+      image.write(thumb_save_directory(base_folder, "#{validate_name(file.original_filename)}.jpeg", navi_list))
       #File.open((thumb_save_directory(base_folder, validate_name("#{file.original_filename}.unknown"), navi_list)), 'w')
     end
 
     def make_medium_thumb(base_folder, file, navi_list)
       image = ::MiniMagick::Image.open(save_directory(base_folder, validate_name(file.original_filename), navi_list))
+      image.strip
+      image.write(save_directory(base_folder,validate_name(file.original_filename),navi_list))
       if image[:width] > 500
        image.resize "500"
       end
-      #image.strip!
-      image.write(save_directory(base_folder, "medium_#{validate_name(file.original_filename)}", navi_list))
+      image.write(save_directory(base_folder, "#{validate_name(file.original_filename)}", navi_list))
     end
 
     def make_media_thumb(base_folder, file, navi_list)
